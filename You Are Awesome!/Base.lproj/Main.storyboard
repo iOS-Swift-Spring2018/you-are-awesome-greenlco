@@ -23,26 +23,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vto-5L-a3a">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vto-5L-a3a">
                                 <rect key="frame" x="70" y="99" width="275" height="97"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="97" id="LvO-k1-OQ0"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ra3-1a-Edt">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ra3-1a-Edt">
                                 <rect key="frame" x="155" y="228" width="104" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Show Message"/>
                                 <connections>
                                     <action selector="showMessagePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lew-Gf-cKn"/>
                                 </connections>
                             </button>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Image0" translatesAutoresizingMaskIntoConstraints="NO" id="dWd-6R-FGp">
+                                <rect key="frame" x="50" y="308" width="314" height="355"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="354" id="Tqd-xS-h7H"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="dWd-6R-FGp" firstAttribute="top" secondItem="Ra3-1a-Edt" secondAttribute="bottom" constant="65" id="43u-H1-DcA"/>
+                            <constraint firstItem="Vto-5L-a3a" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="70" id="6UL-sb-mRb"/>
+                            <constraint firstItem="Vto-5L-a3a" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="D29-Qh-Web"/>
+                            <constraint firstItem="Vto-5L-a3a" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="79" id="FPD-j3-ahT"/>
+                            <constraint firstItem="dWd-6R-FGp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="63" id="UWc-pB-jLt"/>
+                            <constraint firstItem="Ra3-1a-Edt" firstAttribute="top" secondItem="Vto-5L-a3a" secondAttribute="bottom" constant="32" id="Uqg-59-eor"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dWd-6R-FGp" secondAttribute="trailing" constant="37" id="cB4-se-hHt"/>
+                            <constraint firstItem="Vto-5L-a3a" firstAttribute="centerX" secondItem="Ra3-1a-Edt" secondAttribute="centerX" id="nnC-eN-O7H"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="awesomeImage" destination="dWd-6R-FGp" id="L7o-Rk-n00"/>
                         <outlet property="messageLabel" destination="Vto-5L-a3a" id="AMn-HE-RBP"/>
                     </connections>
                 </viewController>
@@ -51,4 +69,7 @@
             <point key="canvasLocation" x="-79.710144927536234" y="132.06521739130434"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Image0" width="3264" height="2448"/>
+    </resources>
 </document>
