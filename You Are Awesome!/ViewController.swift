@@ -11,7 +11,8 @@ import AVFoundation
 
 class ViewController: UIViewController {
 
-
+    //MARK: - Properties
+    @IBOutlet weak var soundSwitch: UISwitch!
     @IBOutlet weak var awesomeImage: UIImageView!
     @IBOutlet weak var messageLabel: UILabel!
     var awesomePlayer = AVAudioPlayer()
@@ -25,7 +26,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+    // MARK: - My Own Functions
     func playSound(soundName: String) {
         //Can we load in the sound name?
         if let sound = NSDataAsset(name: soundName) {
@@ -54,6 +55,16 @@ class ViewController: UIViewController {
         return newIndex
     }
     
+    //MARK: - Actions
+    
+    @IBAction func soundSwitchPressed(_ sender: UISwitch) {
+        if !soundSwitch.isOn && soundNumber != 1 {
+                //stop playing
+            if soundNumber != -1 {
+                awesomePlayer.stop()}
+            
+        }
+    }
     @IBAction func showMessagePressed(_ sender: UIButton) {
 
         let messages = ["You Are Fantastic!",
@@ -67,49 +78,22 @@ class ViewController: UIViewController {
         
         
         //Show a message
-        
         index = nonRepeatingRandom(lastNumber: index, maxValue: messages.count)
         messageLabel.text = messages[index]
         
         //Show an image
         awesomeImage.isHidden = false
-        
         imageNumber = nonRepeatingRandom(lastNumber: imageNumber, maxValue: numberOfImages)
         awesomeImage.image = UIImage(named: "Image\(imageNumber)")
         
-        //Get random number to use for random sound
-    
-        
-        soundNumber = nonRepeatingRandom(lastNumber: soundNumber, maxValue: numberOfSounds)
-        
-        //Play a sound
-        let soundName = "sound\(soundNumber)"
-        playSound(soundName: soundName)
-
-        
-  //      var randomIndex = Int(arc4random_uniform(UInt32(messages.count)))
- //       messageLabel.text = messages[randomIndex]
-        
-        /*
-        messageLabel.text = messages[index]
-        index = index + 1
-        
-        if index == messages.count {
-            index = 0
+        if soundSwitch.isOn == true {
+            //Get random number to use in our soundName file
+            soundNumber = nonRepeatingRandom(lastNumber: soundNumber, maxValue: numberOfSounds)
+            
+            //Play a sound
+            let soundName = "sound\(soundNumber)"
+            playSound(soundName: soundName)
         }
-        */
-        
-//        let message1 = "You Are Fantastic!!!!"
-//        let message2 = "You Are Great!"
-//        let message3 = "You Are Amazing!"
-//
-//        if messageLabel.text == message1 {
-//            messageLabel.text = message2
-//        } else if messageLabel.text == message2 {
-//            messageLabel.text = message3
-//        } else {
-//            messageLabel.text = message1
-//        }
         
     }
 }
